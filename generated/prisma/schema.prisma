@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model FormData {
+  id                 Int      @id @default(autoincrement())
+  name               String
+  number             String
+  address            String
+  size               String
+  date               String
+  service            String
+  baseboards         Boolean  @default(false)
+  fridgeInside       Boolean  @default(false)
+  ovenInside         Boolean  @default(false)
+  done               Boolean  @default(false)
+  price              Int
+  carpetShampooRooms Int
+  blacklist          Boolean  @default(false)
+  source             String   @default("default")
+  otherSource        String?
+  dateCreated        DateTime @default(now())
+}
+
+model Call {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  caller    String
+  called    String
+  size      String
+  service   String
+  section   String
+}

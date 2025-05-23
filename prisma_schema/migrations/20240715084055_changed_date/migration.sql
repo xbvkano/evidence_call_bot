@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "FormData" ALTER COLUMN "date" SET DATA TYPE TEXT;
